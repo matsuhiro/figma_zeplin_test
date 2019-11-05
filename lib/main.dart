@@ -74,32 +74,7 @@ class _MyHomePageState extends State<MyHomePage> {
       body: Center(
         // Center is a layout widget. It takes a single child and positions it
         // in the middle of the parent.
-        child: Column(
-          // Column is also a layout widget. It takes a list of children and
-          // arranges them vertically. By default, it sizes itself to fit its
-          // children horizontally, and tries to be as tall as its parent.
-          //
-          // Invoke "debug painting" (press "p" in the console, choose the
-          // "Toggle Debug Paint" action from the Flutter Inspector in Android
-          // Studio, or the "Toggle Debug Paint" command in Visual Studio Code)
-          // to see the wireframe for each widget.
-          //
-          // Column has various properties to control how it sizes itself and
-          // how it positions its children. Here we use mainAxisAlignment to
-          // center the children vertically; the main axis here is the vertical
-          // axis because Columns are vertical (the cross axis would be
-          // horizontal).
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Text(
-              'You have pushed the button this many times:',
-            ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.display1,
-            ),
-          ],
-        ),
+        child: Group1(),
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: _incrementCounter,
@@ -107,5 +82,90 @@ class _MyHomePageState extends State<MyHomePage> {
         child: Icon(Icons.add),
       ), // This trailing comma makes auto-formatting nicer for build methods.
     );
+  }
+}
+
+class Group1 extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return // Rectangle 1
+        Container(
+            width: 349,
+            height: 517,
+            decoration: BoxDecoration(
+                borderRadius: BorderRadius.all(Radius.circular(20)),
+                border: Border.all(color: const Color(0xff000000), width: 4),
+                color: const Color(0x03927bee)),
+            child: Stack(children: [
+              // Rectangle 2
+              PositionedDirectional(
+                top: 20,
+                start: 18,
+                child: Container(
+                    width: 314,
+                    height: 274,
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.all(Radius.circular(10)),
+                        color: const Color(0xff7b87f2))),
+              ),
+              // Rectangle 3
+              PositionedDirectional(
+                top: 47,
+                start: 47,
+                child: Container(
+                  width: 100,
+                  height: 100,
+                  child: Image.asset('assets/image_1.jpeg', fit: BoxFit.cover),
+                ),
+              ),
+              // Rectangle 4
+              PositionedDirectional(
+                top: 114,
+                start: 125,
+                child: Container(
+                  width: 100,
+                  height: 100,
+                  child: Image.asset('assets/image_2.jpeg', fit: BoxFit.cover),
+                ),
+              ),
+              // Rectangle 5
+              PositionedDirectional(
+                top: 177,
+                start: 213,
+                child: Container(
+                  width: 100,
+                  height: 100,
+                  child: Image.asset('assets/image_3.jpeg', fit: BoxFit.cover),
+                ),
+              ),
+              // This is my sample project.
+              PositionedDirectional(
+                top: 302,
+                start: 18,
+                child: SizedBox(
+                    width: 314,
+                    height: 87,
+                    child: Text("This is my sample project.",
+                        style: const TextStyle(
+                            color: const Color(0xff000000),
+                            fontWeight: FontWeight.w400,
+                            fontFamily: "Roboto",
+                            fontStyle: FontStyle.normal,
+                            fontSize: 36.0))),
+              ),
+              // Rectangle 6
+              PositionedDirectional(
+                top: 458,
+                start: 18,
+                child: Container(
+                    width: 314,
+                    height: 42,
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.all(Radius.circular(10)),
+                        border: Border.all(
+                            color: const Color(0xff9b133c), width: 1),
+                        color: const Color(0xffa7b93c))),
+              )
+            ]));
   }
 }
